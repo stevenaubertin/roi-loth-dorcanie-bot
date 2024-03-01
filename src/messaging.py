@@ -8,7 +8,13 @@ def get_response(user_input: str, quotes: list[str]) -> str:
 
     if lowered == '':
         return choice(quotes)
-    
+    elif lowered == 'aide' or lowered == 'help' or lowered == 'man' or lowered == '\?':
+        return '''
+        C\'est pas bien compliqué, nous sommes chez les salauds mais avec du théatre.\nJe réponds au mots, lettres et autres conneries. Tant que je suis mentionné dans le message.\n\nPar exemple, @Roi Loth D'Orcanie mundis.
+        "Je vais te répondre avec une citation qui contient \'mundis\'."\n\nAutrement, pour avoir la liste des citations tu peux me le demander en utilisant un de ces mots [list|quotes|citations].
+        "Par example, @Roi Loth D'Orcanie citations."'''
+    elif lowered == 'list' or lowered == 'quotes' or lowered == 'citations':
+        return '\n'.join(quotes)
     else:
         candidates = [x for x in filter(lambda x: lowered in x.lower(), quotes)]
         return choice(candidates)
