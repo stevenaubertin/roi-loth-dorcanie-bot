@@ -2,3 +2,7 @@ services:
   main:
     build: .
     container_name: roi-loth-dorcanie-discord-bot
+    environment:
+      - DISCORD_TOKEN=${DISCORD_TOKEN}
+      - BOT_ID=${BOT_ID}
+      - QUOTES_FILENAME=${QUOTES_FILENAME}
